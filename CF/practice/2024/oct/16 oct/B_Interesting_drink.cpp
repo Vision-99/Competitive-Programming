@@ -8,7 +8,7 @@ using ll = long long;
 #define mod 1000000007
 #define all(a) a.begin(),a.end() 
 #define rall(a) a.rbegin(),a.rend()
-#define God_Speed ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+
 
 
 using vi = vector<ll>;
@@ -40,7 +40,7 @@ ll vmax(vector<ll>& a){return *max_element(a.begin(),a.end());}
 
 ll vmin(vector<ll>& a){return *min_element(a.begin(),a.end());}
 
-ll vsum(vector<ll>& a){ll sum=accumulate(a.begin(), a.end(), 0LL);return sum;}
+ll vsum(vector<ll>& a){ll sum=accumulate(a.begin(), a.end(), 0);return sum;}
 
 void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
@@ -50,29 +50,37 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 void I_still_love_her(){
 
-ll n,k;
-cin>>n>>k;
-vi a(k);
-input(a,k);
+ll n;
+cin>>n;
+vi a(n);
+input(a,n);
+ll q;
+cin>>q;
+vi b(q);
+input(b,q);
 
+sort(all(a));
 
-
+fl(i, q) {
+        cout << upper_bound(all(a), b[i]) - a.begin() << nl;
+    }
 
 }
 
 
 int main(){
-God_Speed
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
 
 int t=1;
-cin >> t;
+//cin >> t;
 
 while (t--) {
 
 
 I_still_love_her();
 
-cout<<nl;
+cout<<endl;
 }
 
 return 0;

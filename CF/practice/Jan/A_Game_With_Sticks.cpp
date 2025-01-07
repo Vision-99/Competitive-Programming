@@ -50,13 +50,10 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 void I_still_love_her(){
 
-ll n,k;
-cin>>n>>k;
-vi a(k);
-input(a,k);
+ll n,m;
+cin>>n>>m;
 
-
-
+cout<<(min(n,m)&1?"Akshat":"Malvika");
 
 }
 
@@ -65,7 +62,7 @@ int main(){
 God_Speed
 
 int t=1;
-cin >> t;
+//cin >> t;
 
 while (t--) {
 

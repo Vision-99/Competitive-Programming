@@ -50,11 +50,12 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 void I_still_love_her(){
 
-ll n,k;
-cin>>n>>k;
-vi a(k);
-input(a,k);
+ll n;
+cin>>n;
 
+ll b=n%2020;
+ll a=(n-b)/2020 -b;
+cout<<(a>=0 and n==a*2020 +b*2021?"YES":"NO");
 
 
 

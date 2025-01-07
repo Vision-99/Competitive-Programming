@@ -50,13 +50,19 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 void I_still_love_her(){
 
-ll n,k;
-cin>>n>>k;
-vi a(k);
-input(a,k);
+int n;
+cin>>n;
 
 
+// x=n/(2^n)-1
 
+for(int i=2;i<30;i++){
+    int d=(1<<i) -1;
+    if(n%d==0){
+        cout<<n/d;
+        break;
+    }
+}
 
 }
 

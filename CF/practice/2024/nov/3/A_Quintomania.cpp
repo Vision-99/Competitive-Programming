@@ -49,16 +49,21 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 
 void I_still_love_her(){
+    ll n;
+    cin >> n;
+    vi a(n);
+    input(a, n);
 
-ll n,k;
-cin>>n>>k;
-vi a(k);
-input(a,k);
+    ll f = 1;
 
+    fl(i, n - 1) {
+        if (abs(a[i+1] - a[i]) == 5 || abs(a[i+1] - a[i]) == 7) continue;
+        else f=0;
+    }
 
-
-
+    cout << (f == 1 ? "YES" : "NO");
 }
+
 
 
 int main(){
