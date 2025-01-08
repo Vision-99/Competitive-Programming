@@ -50,12 +50,16 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 void I_still_love_her(){
 
-ll n;
-cin>>n;
-vi a(n);
-input(a,n);
+ll n,m;
+cin>>n>>m;
 
-
+int ans=n;
+while(n/m>0){
+	ans+=n/m;
+	n=n/m+n%m;
+ 
+}
+cout<<ans;
 
 
 }

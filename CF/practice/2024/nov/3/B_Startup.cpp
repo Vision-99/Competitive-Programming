@@ -50,10 +50,10 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 void I_still_love_her(){
 
-ll n;
-cin>>n;
-vi a(n);
-input(a,n);
+ll n,k;
+cin>>n>>k;
+vi a(k);
+input(a,k);
 
 
 

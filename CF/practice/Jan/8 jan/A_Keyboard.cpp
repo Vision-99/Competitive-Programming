@@ -50,11 +50,28 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 void I_still_love_her(){
 
-ll n,k;
-cin>>n>>k;
-vi a(k);
-input(a,k);
+char c;
+string s;
+cin>>c>>s;
+ll n=s.size();
+string key="qwertyuiopasdfghjkl;zxcvbnm,./";
 
+if(c=='R'){// need to left shift
+
+fl(i,n){
+    auto it=key.find(s[i]);
+    it--;
+    cout<<key[it];
+}
+
+}
+else{// need to rigth shift
+fl(i,n){
+    auto it=key.find(s[i]);
+    it++;
+    cout<<key[it];
+}
+}
 
 
 
@@ -65,7 +82,7 @@ int main(){
 God_Speed
 
 int t=1;
-cin >> t;
+//cin >> t;
 
 while (t--) {
 

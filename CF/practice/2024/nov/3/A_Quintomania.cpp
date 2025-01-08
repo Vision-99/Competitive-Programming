@@ -48,7 +48,7 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 
 
-void I_still_love_her(){
+void solve(){
     ll n;
     cin >> n;
     vi a(n);
@@ -75,7 +75,7 @@ cin >> t;
 while (t--) {
 
 
-I_still_love_her();
+solve();
 
 cout<<nl;
 }
