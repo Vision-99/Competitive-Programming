@@ -101,14 +101,14 @@ ll n;
 cin>>n;
 vi a(n);
 input(a,n);
-
-unordered_map<ll,ll> mp;
-
-fl(i,n) mp[a[i]] += a[i]%2;
-
-
-
-
+ll x=a[0]%2;
+ll c=0;
+fl(i,n) if(a[i]&1) c++;
+if(c==0 or c==n) YR
+for(ll i=0;i+1<n;i++){
+    if(a[i]&1 and a[i+1]&1 or a[i+1]%2==0 and a[i]%2==0) NR
+}
+YR
 }
 
 

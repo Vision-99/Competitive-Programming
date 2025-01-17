@@ -102,12 +102,8 @@ cin>>n;
 vi a(n);
 input(a,n);
 
-unordered_map<ll,ll> mp;
-
-fl(i,n) mp[a[i]] += a[i]%2;
-
-
-
+if(MF(a)>=3) cout<<MFE(a);
+else cout<<-1;
 
 }
 

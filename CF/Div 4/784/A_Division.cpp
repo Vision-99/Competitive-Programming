@@ -1,4 +1,3 @@
-// Valar Morghulis
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,8 +9,6 @@ using ll = long long;
 #define all(a) a.begin(),a.end() 
 #define rall(a) a.rbegin(),a.rend()
 #define God_Speed ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-#define YR {cout<<"YES";return;}
-#define NR {cout<<"NO";return;}
 
 
 using vi = vector<ll>;
@@ -21,14 +18,7 @@ ll ncr(ll n, ll r){return(fact(n)/(fact(n-r)*fact(r)));}
 ll dist(ll x1,ll y1 ,ll x2,ll y2){return (x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1);}
 
 
-bool isprime(long long n) {
-    if (n < 2) return false;
-    for (long long i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
+bool isprime(ll n){ll f=1;for(ll i=n-1;i>1;i--){if(n%i==0){f=0;break;}}return f;}
 
 ll sum1(ll n){return n*(n+1)/2;}
 ll sum2(ll n){return n*(n+1)*(2*n +1)/6;}
@@ -55,58 +45,18 @@ ll vsum(vector<ll>& a){ll sum=accumulate(a.begin(), a.end(), 0LL);return sum;}
 void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 
-bool isvowel(char c) {
-    c = tolower(c);     return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
 
-ll MFE(const vector<ll>& nums) {
-    unordered_map<ll, ll> freq;
-    int maxFreq = 0, mostFreqElement;
 
-    for (ll num : nums) {
-        freq[num]++;
-        if (freq[num] > maxFreq) {
-            maxFreq = freq[num];
-            mostFreqElement = num;
-        }
-    }
-
-    return mostFreqElement;
-}
-ll MF(const vector<ll>& nums) {
-    unordered_map<ll, ll> freq;
-    ll ans = 0;
-
-    for (ll num : nums) {
-        freq[num]++;
-        if (freq[num] > ans) ans = freq[num];               
-    }
-
-    return ans;
-}
-
-ll subcount(string &s,string &sub){
-    ll ans=0;
-    size_t pos=0;
-    while((pos=s.find(sub,pos))!=string::npos){
-        ans++;
-        pos+=sub.size();
-    }
-    return ans;
-}
 
 void I_still_love_her(){
 
 ll n;
 cin>>n;
-vi a(n);
-input(a,n);
 
-unordered_map<ll,ll> mp;
-
-fl(i,n) mp[a[i]] += a[i]%2;
-
-
+if(n<=1399) cout<<"Division 4";
+else if(n>=1400 and n<=1599) cout<<"Division 3";
+else if(n>=1600 and n<=1899) cout<<"Division 2";
+else cout<<"Division 1";
 
 
 }
@@ -128,4 +78,3 @@ cout<<nl;
 
 return 0;
 }
-// Valar Dohaeris

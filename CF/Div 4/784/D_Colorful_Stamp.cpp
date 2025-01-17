@@ -95,20 +95,45 @@ ll subcount(string &s,string &sub){
     return ans;
 }
 
-void I_still_love_her(){
 
-ll n;
-cin>>n;
-vi a(n);
-input(a,n);
+bool allsame(string s){
+    for(ll i=0;i+1<s.size();i++){
+        if(s[i]!=s[i+1]) return 0;
+    }
+    return 1;
+}
+void I_still_love_her() {
+    ll n;
+    cin >> n;
+    string s;
+    cin >> s;
+    
+    vector<string> a;
+    string p = "";
 
-unordered_map<ll,ll> mp;
-
-fl(i,n) mp[a[i]] += a[i]%2;
-
-
-
-
+    for(char c : s) {
+        if(c == 'W') {
+            if(!p.empty()) {
+                a.push_back(p);
+            }
+            p = "";
+        } else {
+            p += c;
+        }
+    }
+    // Don't forget the last part
+    if(!p.empty()) {
+        a.push_back(p);
+    }
+    
+    for(const string& part : a) {
+        // If a part has only R or only B, it's invalid
+        if(allsame(part)) {
+            NR
+        }
+    }
+    
+    YR
 }
 
 
