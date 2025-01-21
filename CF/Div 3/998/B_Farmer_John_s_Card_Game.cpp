@@ -50,11 +50,46 @@ void input(vector<ll>& a,ll n){fl(i,n)cin>>a[i];}
 
 void I_still_love_her(){
 
-ll n;
-cin>>n;
-vi a(n);
-input(a,n);
+ll n, m;
+cin >> n >> m;
+vector<vi> a(n, vi(m));
 
+fl(i, n) fl(j,m) cin >> a[i][j];
+ 
+
+fl(i, n) sort(all(a[i]));
+
+
+vi p(n);
+fl(i, n) p[i] = i + 1;
+
+
+for (int i = 0; i < n; i++)
+{
+    for (int j = i + 1; j < n; j++)
+    {
+        if (a[i][0] > a[j][0])
+        {
+            swap(a[i], a[j]);
+            swap(p[i], p[j]);
+        }
+    }
+}
+ll x=0;
+fl(j, m)
+{
+    fl(i, n)
+    {
+        if (a[i][j] != x)
+        {
+            cout << -1;
+            return;
+        }
+        x++;
+    }
+}
+
+fl(i, n) cout << p[i] << ' ';  
 
 
 

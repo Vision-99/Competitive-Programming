@@ -102,9 +102,16 @@ cin>>n;
 vi a(n);
 input(a,n);
 
-cout<<(a[0]==vmax(a)?"NO":"YES");
+for(ll i=0;i+1<n;i++){
+    if(a[i]>a[i+1]) NR
+    else{
+        ll temp=a[i];
+        a[i]-=temp;
+        a[i+1]-=temp;
+    }
+}
 
-
+YR
 }
 
 

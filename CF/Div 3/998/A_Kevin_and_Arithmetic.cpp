@@ -54,10 +54,11 @@ ll n;
 cin>>n;
 vi a(n);
 input(a,n);
-
-if(n==1 and n&1) {cout<<0;return;}
-else if(n==1 and n%2==0) {cout<<1;return;}
-
+ll ce=0;
+if(n==1 and a[0]&1) {cout<<0;return;}
+if(n==1 and a[0]%2==0) {cout<<1;return;}
+for(auto x:a) if(x%2==0) ce++;
+if(ce==0) {cout<<n-1;return;}
 ll od=0;
 for(auto x:a) if(x&1) od++;
 cout<<od+1;
