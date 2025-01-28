@@ -61,7 +61,7 @@ for(auto x:a) mp[x]++;
 
 for(ll i=0;i<n;i++){
     ll x= k - a[i];
-    if(mp.count(x) && mp[x]>0 ){
+    if(mp[x]>0){
         ans++;mp[x]--;
     }
     
