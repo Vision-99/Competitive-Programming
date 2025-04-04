@@ -2,7 +2,8 @@
 using namespace std;
 
 using ll = long long;
-#define fl(i,n) for(ll i=0;i<n;i++)
+#define fl(i,a,b) for(ll i=a;i<b;i++)
+#define fle(i,a,b) for(ll i=a;i<=b;i++)
 #define nl endl
 #define pb push_back
 #define MOD 1000000007
@@ -91,7 +92,7 @@ ll vmax(vector<ll>& a) {return *max_element(a.begin(), a.end());}
 ll vmin(vector<ll>& a) {return *min_element(a.begin(), a.end());}
 ll vsum(vector<ll>& a) {ll sum = accumulate(a.begin(), a.end(), 0LL); return sum;}
 
-void input(vector<ll>& a, ll n) {fl(i, n) cin >> a[i];}
+void input(vector<ll>& a, ll n) {fl(i,0,n) cin >> a[i];}
 
 bool isvowel(char c) {c = tolower(c); return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');}
 
@@ -121,34 +122,50 @@ ll MF(const vector<ll>& nums) {
 
 
 
-void I_still_love_her() {
-ll n;
-cin>>n;
-vi a(n);
-input(a, n);
+void I_still_love_her(){
+ll n,x,k;
+string s;
 
+cin >> n >> x >> k>>s;
 
-vi pre_pos(n,0),post_neg(n,0);
-if(a[0]>0) pre_pos[0]=a[0];
-for(int i=1;i<n;i++){
-    if(a[i]>0) pre_pos[i]=pre_pos[i-1]+a[i];
-    else pre_pos[i]=pre_pos[i-1];
+ll t=0, ans=0, D=-1, P=x;
 
-}
-if(a[n-1]<0) post_neg[n-1] = abs(a[n-1]);
-
-for(ll i=n-2;i>=0;i--){
-    if(a[i]<0) post_neg[i] = post_neg[i+1] + abs(a[i]);
-    else post_neg[i] = post_neg[i+1];
-}
-ll ans=0;
-fl(i,n){
-
-    ans = max(ans,pre_pos[i]+post_neg[i]);
+fl(i,0,n){
+    t++;
+    P += (s[i]=='L' ? -1 : 1);
+    if(P==0){ D=t; break; }
 }
 
-cout<<ans;
+if(D==-1) { cout<<0; return; }
 
+ans=1;
+ll r = k - D;
+
+if(r < 0) { cout<<ans; return; }
+
+P = 0; t = 0;
+ll f = -1;
+
+fl(i,0,n){
+    t++;
+    P += (s[i]=='L' ? -1 : 1);
+    if(P==0){ f=t; break; }
+}
+
+if(f==-1){ cout<<ans; return; }
+
+ll full = r / f;
+ans += full;
+ll r2 = r % f;
+P = 0;
+
+fl(i,0,r2){
+    P += (s[i]=='L' ? -1 : 1);
+    if(P==0) { ans++; break; }
+}
+
+
+cout << ans;
 
 
 }

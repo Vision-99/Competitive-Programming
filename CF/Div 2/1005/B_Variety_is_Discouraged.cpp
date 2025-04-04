@@ -122,37 +122,32 @@ ll MF(const vector<ll>& nums) {
 
 
 void I_still_love_her() {
-ll n;
-cin>>n;
-vi a(n);
-input(a, n);
+    ll n;
+    cin >> n;
+    vi a(n);
+    input(a,n);
+    umpll mp;
+    for(auto x:a) mp[x]++;
 
-// Frequency vector for values from 1 to n.
-vector<int> freq(n + 1, 0);
-for (int x : a)
-    freq[x]++;
+    ll r = 0;
+    ll ansl = -1, ansr = -1;
+    ll len = 0;
 
-// len[i] stores the length of the contiguous eligible (freq == 1) segment ending at i.
-vector<int> len(n, 0);
-len[0] = (freq[a[0]] == 1);
-for (int i = 1; i < n; i++) {
-    if (freq[a[i]] == 1)
-        len[i] = len[i - 1] + 1;
-    else
-        len[i] = 0;
-}
+    for (ll i = 0; i < n; i++){
 
-int mx = *max_element(len.begin(), len.end());
-if (mx == 0) {cout<<0;return;}
-
-// Find the first occurrence of the longest eligible segment.
-for (int i = 0; i < n; i++) {
-    if (len[i] == mx) {
-        // Convert 0-indexed to 1-indexed boundaries.
-        cout << i - len[i] + 2 << " " << i + 1;
-        return;
+        r = max(r, i);
+        while (r < n && mp[a[r]] == 1) r++;
+        
+        if (r - i > len){        
+            len = r - i;
+            ansl = i;
+            ansr = r - 1;
+        }
     }
-}
+
+    if (ansl == -1) cout << 0;
+    else cout << ansl + 1 << " " << ansr + 1;
+    
 
 
 }

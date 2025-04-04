@@ -122,33 +122,23 @@ ll MF(const vector<ll>& nums) {
 
 
 void I_still_love_her() {
+
 ll n;
-cin>>n;
-vi a(n);
-input(a, n);
+string s;
 
+cin>>n>>s;
 
-vi pre_pos(n,0),post_neg(n,0);
-if(a[0]>0) pre_pos[0]=a[0];
-for(int i=1;i<n;i++){
-    if(a[i]>0) pre_pos[i]=pre_pos[i-1]+a[i];
-    else pre_pos[i]=pre_pos[i-1];
+ll d=0,u=0;// for the count of dash and underScore
 
-}
-if(a[n-1]<0) post_neg[n-1] = abs(a[n-1]);
-
-for(ll i=n-2;i>=0;i--){
-    if(a[i]<0) post_neg[i] = post_neg[i+1] + abs(a[i]);
-    else post_neg[i] = post_neg[i+1];
-}
-ll ans=0;
-fl(i,n){
-
-    ans = max(ans,pre_pos[i]+post_neg[i]);
+for(auto c:s){
+    if(c=='-') d++;
+    else u++;
 }
 
-cout<<ans;
+if(d<2 or u<1) {cout<<0;return;}
 
+
+cout<<(d/2)*(d-d/2)*u;
 
 
 }

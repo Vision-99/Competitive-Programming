@@ -122,32 +122,18 @@ ll MF(const vector<ll>& nums) {
 
 
 void I_still_love_her() {
-ll n;
-cin>>n;
-vi a(n);
-input(a, n);
 
 
-vi pre_pos(n,0),post_neg(n,0);
-if(a[0]>0) pre_pos[0]=a[0];
-for(int i=1;i<n;i++){
-    if(a[i]>0) pre_pos[i]=pre_pos[i-1]+a[i];
-    else pre_pos[i]=pre_pos[i-1];
+string a,b,c;
+cin>>a>>b>>c;
 
-}
-if(a[n-1]<0) post_neg[n-1] = abs(a[n-1]);
 
-for(ll i=n-2;i>=0;i--){
-    if(a[i]<0) post_neg[i] = post_neg[i+1] + abs(a[i]);
-    else post_neg[i] = post_neg[i+1];
-}
-ll ans=0;
-fl(i,n){
+string d=a+b;
+sort(all(d));
+sort(all(c));
 
-    ans = max(ans,pre_pos[i]+post_neg[i]);
-}
-
-cout<<ans;
+if(d==c) YR
+else NR
 
 
 
@@ -159,7 +145,7 @@ cout<<ans;
 int main() {
     God_Speed
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--) {
         I_still_love_her();
         cout << nl;

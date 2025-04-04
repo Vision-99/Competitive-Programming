@@ -122,33 +122,18 @@ ll MF(const vector<ll>& nums) {
 
 
 void I_still_love_her() {
-ll n;
-cin>>n;
-vi a(n);
-input(a, n);
+ll n,a,b;
+cin>>n>>a>>b;
 
-
-vi pre_pos(n,0),post_neg(n,0);
-if(a[0]>0) pre_pos[0]=a[0];
-for(int i=1;i<n;i++){
-    if(a[i]>0) pre_pos[i]=pre_pos[i-1]+a[i];
-    else pre_pos[i]=pre_pos[i-1];
-
+if(b>2*a) cout<<n*a;
+else{
+    if(n&1){
+        cout<<a+(n/2)*b;
+    }
+    else{
+        cout<<(n/2)*b;
+    }
 }
-if(a[n-1]<0) post_neg[n-1] = abs(a[n-1]);
-
-for(ll i=n-2;i>=0;i--){
-    if(a[i]<0) post_neg[i] = post_neg[i+1] + abs(a[i]);
-    else post_neg[i] = post_neg[i+1];
-}
-ll ans=0;
-fl(i,n){
-
-    ans = max(ans,pre_pos[i]+post_neg[i]);
-}
-
-cout<<ans;
-
 
 
 }

@@ -121,38 +121,38 @@ ll MF(const vector<ll>& nums) {
 
 
 
-void I_still_love_her() {
-ll n;
-cin>>n;
-vi a(n);
-input(a, n);
+void I_still_love_her(){
+ll k;
+cin>>k;
 
+if(k==0) {cout<<0;return;}
 
-vi pre_pos(n,0),post_neg(n,0);
-if(a[0]>0) pre_pos[0]=a[0];
-for(int i=1;i<n;i++){
-    if(a[i]>0) pre_pos[i]=pre_pos[i-1]+a[i];
-    else pre_pos[i]=pre_pos[i-1];
+vi r;
 
-}
-if(a[n-1]<0) post_neg[n-1] = abs(a[n-1]);
-
-for(ll i=n-2;i>=0;i--){
-    if(a[i]<0) post_neg[i] = post_neg[i+1] + abs(a[i]);
-    else post_neg[i] = post_neg[i+1];
-}
-ll ans=0;
-fl(i,n){
-
-    ans = max(ans,pre_pos[i]+post_neg[i]);
+while(k>0){
+    ll m=2;
+    for(ll i=2;i<=500;i++){
+    if(i*(i-1)/2<=k)m=i;
+    else break;
+    }
+    r.pb(m);
+    k-=m*(m-1)/2;
 }
 
-cout<<ans;
+ll tot=0;
 
+for(auto x:r) tot+=x;
+
+cout<<tot<<nl;
+
+fl(i,r.size()){
+    ll b=i*10000;
+    fl(j,r[i]) cout<<b+j<<" "<<i<<nl;   
+    
+}
 
 
 }
-
 
 
 

@@ -121,31 +121,22 @@ ll MF(const vector<ll>& nums) {
 
 
 
-void I_still_love_her(){
-
-
+void I_still_love_her() {
 ll n;
 cin>>n;
-vi B(n-2);
-input(B,n-2);
+ll N=n-2;
+vi a(N);
+input(a, N);
 
-vector<vector<bool>> dp(n,vector<bool>(2,false));
-dp[1][0]=dp[1][1]=true;
 
-for(ll i=2;i<=n-1;i++){
-    for(ll v=0;v<2;v++){
-        if(!dp[i-1][v]) continue;
-        if(B[i-2]==1){
-            if(v==1) dp[i][1]=true;
-        } else {
-            if(v==0) dp[i][0]=dp[i][1]=true;
-            else dp[i][0]=true;
-        }
-    }
+// if array has the partten 101 print NO, else YES
+
+fl(i,N){
+    if(i>=2 and a[i]==1 and a[i-1]==0 and a[i-2]==1) NR
 }
 
+cout<<"YES";
 
-cout<<((dp[n-1][0]||dp[n-1][1])? "YES" : "NO");
 }
 
 

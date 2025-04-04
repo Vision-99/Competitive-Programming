@@ -122,16 +122,26 @@ ll MF(const vector<ll>& nums) {
 
 
 void I_still_love_her() {
+
 ll a,b;
 cin>>a>>b;
 
-if(b>a) {cout<<1;return;}
-else if(b==a) {cout<<2;return;}
+// try for all value and take the minimum from that
 
+ll ans=INT_MAX;
 
+fl(i,32){
+    if(b+i==1) continue;
 
+    ll cnt=0,temp=a;
+    while(temp!=0){
+        cnt++;
+        temp /=(b+i);
+    }
+    ans=min(ans,cnt+i);
+}
 
-
+cout<<ans;
 
 }
 

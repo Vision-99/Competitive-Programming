@@ -2,7 +2,8 @@
 using namespace std;
 
 using ll = long long;
-#define fl(i,n) for(ll i=0;i<n;i++)
+#define fl(i,a,b) for(ll i=a;i<b;i++)
+#define fle(i,a,b) for(ll i=a;i<=b;i++)
 #define nl endl
 #define pb push_back
 #define MOD 1000000007
@@ -91,7 +92,7 @@ ll vmax(vector<ll>& a) {return *max_element(a.begin(), a.end());}
 ll vmin(vector<ll>& a) {return *min_element(a.begin(), a.end());}
 ll vsum(vector<ll>& a) {ll sum = accumulate(a.begin(), a.end(), 0LL); return sum;}
 
-void input(vector<ll>& a, ll n) {fl(i, n) cin >> a[i];}
+void input(vector<ll>& a, ll n) {fl(i,0,n) cin >> a[i];}
 
 bool isvowel(char c) {c = tolower(c); return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');}
 
@@ -122,37 +123,50 @@ ll MF(const vector<ll>& nums) {
 
 
 void I_still_love_her() {
-ll n;
-cin>>n;
-vi a(n);
-input(a, n);
 
+    ll n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    vi a(n);
+    input(a, n);
+    
+    ll L = 0, H = 0;
+    fl(i, 0, n) H = max(H, a[i]);
+    
+    ll ans = H;
+    
+    while (L <= H) {
+        ll M = (L + H) / 2, x = 0;
+        bool in = 0, req = 0;
 
-vi pre_pos(n,0),post_neg(n,0);
-if(a[0]>0) pre_pos[0]=a[0];
-for(int i=1;i<n;i++){
-    if(a[i]>0) pre_pos[i]=pre_pos[i-1]+a[i];
-    else pre_pos[i]=pre_pos[i-1];
+        fl(i,0,n) {
+            bool f = (a[i] > M and s[i] == 'R');
+            bool r = (a[i] > M and s[i] == 'B');
 
+            if (f) {
+                if (in && req) x++;
+                in = 0;
+                req = 0;
+            } 
+            else {
+                in = 1;
+                if (r) req = 1;
+            }
+        }
+        
+        if (in and req) x++;
+
+        if (x <= k) {
+            ans = M;
+            H = M - 1;
+        } 
+        else L = M + 1;            
+        
+    }
+    
+    cout << ans;
 }
-if(a[n-1]<0) post_neg[n-1] = abs(a[n-1]);
-
-for(ll i=n-2;i>=0;i--){
-    if(a[i]<0) post_neg[i] = post_neg[i+1] + abs(a[i]);
-    else post_neg[i] = post_neg[i+1];
-}
-ll ans=0;
-fl(i,n){
-
-    ans = max(ans,pre_pos[i]+post_neg[i]);
-}
-
-cout<<ans;
-
-
-
-}
-
 
 
 
